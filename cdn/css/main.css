@@ -1,0 +1,27 @@
+* {
+	font-family: IM Fell French Canon SC;
+}
+.container a:hover {
+	background-color: black;
+}
+
+img {
+ 	height:350px;
+ }
+
+.book-name h5 {
+	font-weight: bold;
+}
+.category {
+	text-align: left;
+	color: #ad1414;
+}
+.s-points {
+	text-align: left;
+	padding-right: 10px;
+}
+.price {
+	color: #db1a1a;
+	font-weight: bold;
+}
+
