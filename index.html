@@ -30,55 +30,117 @@
   <body>
 
     <!-- Navigation -->
-    <div id="nav-bar"> </div>
+    <div id="nav-bar">
+		<nav id="nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      		<div class="container">
+        		<a class="navbar-brand" href="#">My Store</a>
+        		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          			<span class="navbar-toggler-icon"></span>
+        		</button>
+        		<div class="collapse navbar-collapse" id="navbarResponsive">
+          			<ul class="navbar-nav ml-auto">
+            			<li class="nav-item active">
+              				<a id ="books-show" class="nav-link" href="#" target="_blank">Books
+              				</a>
+            			</li>
+            			<li class="nav-item">
+              				<a id ="music-show" class="nav-link" href="#" target="_blank">Albums</a>
+            			</li>
+          			</ul>
+        		</div>
+      		</div>
+    	</nav>
+    </div>
     <!-- Page Content -->
     <div class="content">
 
     <div id = "header1"></div>
-      
-    <div class="row text-center">
-
     <div id="Books">
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div id = "the-Stranger" class="bookProduct">
-            <img class="card-img-top" src="cdn/img/the-stranger.jpeg" alt="Book's cover">
-            <div class="card-body">
-              <div class="book-name"><h5>The Stranger</h5></div>
-              <div class="category"><h6>Novel</h6></div>
-              <div class="s-points"><p>Buy From:</p>
-              	<ul>
-              		<li>El Sherouq library</li>
-              		<li>Alef Library</li>
-              	</ul>
-              </div>
-            </div>
-            <div class="card-footer">
-              <h4>Buy For:<span class="price">10$</span></h4>
-            </div>
-          </div>
-        </div>
+    	<div class="row text-center">
+        	<div class="col-lg-3 col-md-6 mb-4">
+          		<div id = "the-Stranger" class="bookProduct">
+            		<img class="card-img-top" src="cdn/img/the-stranger.jpeg" alt="Book's cover">
+            		<div class="card-body">
+              			<div class="book-name"><h5>The Stranger</h5></div>
+              			<div class="category"><h6>Novel</h6></div>
+              			<div class="s-points"><p>Buy From:</p>
+              				<ul>
+              					<li>El Sherouq library</li>
+              					<li>Alef Library</li>
+              				</ul>
+              			</div>
+            		</div>
+            		<div class="card-footer">
+              			<h4>Buy For:<span class="price">10$</span></h4>
+            		</div>
+          		</div>
+        	</div>
 
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div id = "storm-of-swords" class="bookProduct">
-            <img class="card-img-top" src="cdn/img/got.jpg" alt="Book's cover">
-            <div class="card-body">
-              <div class="book-name"><h5>A storm of Swords</h5></div>
-              <div class="category"><h6>Novel</h6></div>
-              <div class="s-points"><p>Buy From:</p>
-              	<ul>
-              		<li>El Sherouq library</li>
-              		<li>Alef Library</li>
-              	</ul>
-              </div>
-            </div>
-            <div class="card-footer">
-              <h4>Buy For:<span class="price">15$</span></h4>
-            </div>
-          </div>
-        </div>
-      </div>
+        	<div class="col-lg-3 col-md-6 mb-4">
+          		<div id = "storm-of-swords" class="bookProduct">
+            		<img class="card-img-top" src="cdn/img/got.jpg" alt="Book's cover">
+            		<div class="card-body">
+              			<div class="book-name"><h5>A storm of Swords</h5></div>
+              			<div class="category"><h6>Novel</h6></div>
+              			<div class="s-points"><p>Buy From:</p>
+              				<ul>
+              					<li>El Sherouq library</li>
+              					<li>Alef Library</li>
+              				</ul>
+              			</div>
+            		</div>
+           	 		<div class="card-footer">
+              			<h4>Buy For:<span class="price">15$</span></h4>
+            		</div>
+          		</div>
+        	</div>
+      	</div>
+      	<!-- /.row -->
+    </div>
+
+    <div id = "music">
+		<div class="row text-center">
+        	<div class="col-lg-3 col-md-6 mb-4">
+          		<div id = "Nirvana" class="MusicProduct">
+            		<img class="card-img-top" src="cdn/img/Nirvana.png" alt="Book's cover">
+            		<div class="card-body">
+              			<div class="Album-name"><h5>Best-of Nirvana</h5></div>
+              			<div class="category"><h6>Alt-Rock</h6></div>
+              			<div class="s-points"><p>Buy From:</p>
+              				<ul>
+              					<li>Amazon</li>
+              					<li>Music roast</li>
+              				</ul>
+              			</div>
+            		</div>
+            		<div class="card-footer">
+              			<h4>Buy For:<span class="price">10$</span></h4>
+            		</div>
+          		</div>
+        	</div>
+
+        	<div class="col-lg-3 col-md-6 mb-4">
+          		<div id = "wish-you" class="bookProduct">
+            		<img class="card-img-top" src="cdn/img/Pink.png" alt="Book's cover">
+            		<div class="card-body">
+              			<div class="album-name"><h5>Wish you Were Here</h5></div>
+              			<div class="category"><h6>Rock</h6></div>
+              			<div class="s-points"><p>Buy From:</p>
+              				<ul>
+              					<li>Amazon</li>
+              					<li>Music roast</li>
+              				</ul>
+              			</div>
+            		</div>
+            		<div class="card-footer">
+              			<h4>Buy For:<span class="price">15$</span></h4>
+            		</div>
+          		</div>
+        	</div>
+      	</div>
       <!-- /.row -->
     </div>
+
 
     </div>
     <!-- /.container -->
