@@ -40,11 +40,11 @@
         		<div class="collapse navbar-collapse" id="navbarResponsive">
           			<ul class="navbar-nav ml-auto">
             			<li class="nav-item active">
-              				<a id ="books-show" class="nav-link" href="#" target="_blank">Books
+              				<a id ="books-show" class="nav-link books" href="#" target="_blank">Books
               				</a>
             			</li>
             			<li class="nav-item">
-              				<a id ="music-show" class="nav-link" href="#" target="_blank">Albums</a>
+              				<a id ="music-show" class="nav-link music" href="#" target="_blank">Albums</a>
             			</li>
           			</ul>
         		</div>
@@ -55,10 +55,10 @@
     <div class="content">
 
     <div id = "header1"></div>
-    <div id="Books">
+    <div id="books" class="data Active" >
     	<div class="row text-center">
         	<div class="col-lg-3 col-md-6 mb-4">
-          		<div id = "the-Stranger" class="bookProduct">
+          		<div id = "the-Stranger" class="book Product">
             		<img class="card-img-top" src="cdn/img/the-stranger.jpeg" alt="Book's cover">
             		<div class="card-body">
               			<div class="book-name"><h5>The Stranger</h5></div>
@@ -77,7 +77,7 @@
         	</div>
 
         	<div class="col-lg-3 col-md-6 mb-4">
-          		<div id = "storm-of-swords" class="bookProduct">
+          		<div id = "storm-of-swords" class="book Product">
             		<img class="card-img-top" src="cdn/img/got.jpg" alt="Book's cover">
             		<div class="card-body">
               			<div class="book-name"><h5>A storm of Swords</h5></div>
@@ -98,10 +98,10 @@
       	<!-- /.row -->
     </div>
 
-    <div id = "music">
+    <div id="music" class="data notActive">
 		<div class="row text-center">
         	<div class="col-lg-3 col-md-6 mb-4">
-          		<div id = "Nirvana" class="MusicProduct">
+          		<div id = "Nirvana" class="music Product">
             		<img class="card-img-top" src="cdn/img/Nirvana.png" alt="Book's cover">
             		<div class="card-body">
               			<div class="Album-name"><h5>Best-of Nirvana</h5></div>
@@ -120,7 +120,7 @@
         	</div>
 
         	<div class="col-lg-3 col-md-6 mb-4">
-          		<div id = "wish-you" class="bookProduct">
+          		<div id = "wish-you" class="music Product">
             		<img class="card-img-top" src="cdn/img/Pink.png" alt="Book's cover">
             		<div class="card-body">
               			<div class="album-name"><h5>Wish you Were Here</h5></div>
@@ -147,11 +147,10 @@
 
     <!-- Footer -->
     <div id="footer"></div>
-
     <script type="text/javascript"></script>
     <script src="cdn/js/jquery-3.3.1.js"></script>
     <script src="cdn/js/main.js"></script>
-
+    <script src="cdn/js/handlebars-v4.0.11.js"></script>
   </body>
 
 </html>
