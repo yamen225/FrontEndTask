@@ -16,6 +16,11 @@ function Album (name, category, imgUrl, price, sPoints){
 	this.sPoints = sPoints;
 }
 
+function Product(books, albums){
+	this.books = books;
+	this.albums = albums;
+}
+
 function createRow(type){
 	$('<div/>', {
     	'id':type,
@@ -85,24 +90,36 @@ function createObj(obj, type){
 
 }
 
+function populateNav(Prod){
+	for (let i = 0; i<(Object.keys(Prod)).length; i++){
+		alert(Object.keys(Prod)[i])
+		$('<a href="#" id = "'+Object.keys(Prod)[i]+'" class = "dropdown-item">'+Object.keys(Prod)[i]+'</a>').appendTo($('.dropdown-menu'));
+	}
+}
 
 
 let book1 = new Book("The Stranger", "Novel", "cdn/img/the-stranger.jpeg", 10, ["El Sherouq library", "Alef Library"]);
 
 let book2 = new Book("A storm of Swords", "Novel", "cdn/img/got.jpg", 15, ["El Sherouq library", "Alef Library"]);
 
+let book3 = new Book("Thus Spoken Zradustra", "Philosophy", "cdn/img/nitshe", 100, ["El Sherouq library", "Alef Library"]);
+
 let Album1 = new Album("Best of Nirvana", "Alt-Rock", "cdn/img/Nirvana.png", 10, ["Itunes", "Spotify"]);
 
 let Album2 = new Album("Wish You Were Here", "Rock", "cdn/img/Pink.png", 15, ["Itunes", "Spotify"]);
 
-let books=[book1, book2];
+let books=[book1, book2, book3];
 let albums=[Album1, Album2];
-
+let Prod = {
+	"books":books,
+	"albums":albums
+}
+var keyNames = Object.keys(Prod);
 $(document).ready(() => {
     $("#header1").load("header.html");
     $("#footer").load("footer.html");
-
-    $('.nav-link').click(function(event){
+    populateNav(Prod);
+    $('.dropdown-item').click(function(event){
         event.preventDefault();
     	let clicked_class = ($('#' + event.target.id).attr('class')).split(' ')[1];
     	$('.data').removeClass('Active');
@@ -111,20 +128,20 @@ $(document).ready(() => {
     	$(".content").html("");
     	createRow(clicked_class);
     	if (clicked_class==='books'){
-    		for (var i = books.length - 1; i >= 0; i--) {
-    			createObj(books[i],clicked_class);
+    		for (let i = Prod.books.length - 1; i >= 0; i--) {
+    			createObj(Prod.books[i],clicked_class);
     		}
     	}else if(clicked_class==='music'){
-    		for (var i = albums.length - 1; i >= 0; i--) {
-    			createObj(albums[i],clicked_class);
+    		for (let i = Prod.albums.length - 1; i >= 0; i--) {
+    			createObj(Prod.albums[i],clicked_class);
     		} 		
     	}else{
-    		for (var i = books.length - 1; i >= 0; i--) {
-    			createObj(books[i],clicked_class);
+    		for (let i = Prod.books.length - 1; i >= 0; i--) {
+    			createObj(Prod.books[i],clicked_class);
     		}
-    		for (var i = albums.length - 1; i >= 0; i--) {
-    			createObj(albums[i],clicked_class);
-    		}    		createObj(book1,clicked_class);
+    		for (let i = Prod.albums.length - 1; i >= 0; i--) {
+    			createObj(Prod.albums[i],clicked_class);
+    		}
     	}
     });
 
