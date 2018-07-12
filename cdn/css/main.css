@@ -32,3 +32,11 @@
 .notActive{
 	display: none;
 }
+
+#add-btn {
+	margin-right: 10px;
+}
+
+.btn-outline-dark {
+	margin-top: 5px; 
+}

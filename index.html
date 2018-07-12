@@ -53,7 +53,7 @@
 
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Expand at md</a>
+      <a class="navbar-brand" href="#">My Store</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -64,13 +64,14 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Products</a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
               <a class="dropdown-item" href="#">Show All</a>
 
             </div>
           </li>
         </ul>
+        <button id="add-btn" type="button" class="btn btn-outline-light">Add Product</button>
         <form class="form-inline my-2 my-md-0">
           <input id="srch-box" class="form-control" type="text" placeholder="Search">
 		  <button id="srch-btn" type="button" class="btn btn-outline-light">Search</button>
@@ -80,8 +81,39 @@
 
     <!-- Page Content -->
     <div id = "header1"></div>
-    <div class="content">
-
+    	
+ 
+	  <form id="add-form" class="notActive">
+  		<div class="form-group">
+    		<label for="exampleFormControlSelect1">Select Product Type</label>
+    		<select class="form-control" id="exampleFormControlSelect1">
+      			<option>Books</option>
+     			<option>Albums</option>
+    		</select>
+  		</div>
+  		<div>
+    		<label for="exampleFormControlInput1">Product's Name</label>
+    		<input type="text" class="form-control" id="in-name" placeholder="Name">
+  		</div>
+  		<div>
+  			<label for="exampleFormControlInput1">Product's Category</label>
+    		<input type="text" class="form-control" id="in-category" placeholder="Category">
+  		</div>
+  		<div>
+    		<label for="exampleFormControlInput1">Product's Picture URL</label>
+    		<input type="url" class="form-control" id="in-imgUrl" placeholder="www.....">
+  		</div>
+ 		<div>
+    		<label for="exampleFormControlInput1">Product's Price</label>
+    		<input type="number" class="form-control" id="in-price" placeholder="$$">
+  		</div>
+  		<div>
+    		<label for="exampleFormControlInput1">Product's Selling Points</label>
+    		<input type="text" class="form-control" id="in-s-points" placeholder="please seperate elements by commas">
+  		</div>
+  		<button type="submit" id="su-form" class="btn btn-outline-dark">Submit</button>
+	</form>
+	<div class="content">
     </div>
     <!-- /.container -->
 

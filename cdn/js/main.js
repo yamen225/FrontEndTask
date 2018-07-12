@@ -39,7 +39,6 @@ function createRow(type){
 
 function createObj(obj, type){
 	let objName = obj.name.split(' ').join('');  		
-	alert(objName);
     		$('<div/>', {
     			'id':objName+'-card',
     			'class':'col-lg-3 col-md-6 mb-4',
@@ -96,14 +95,12 @@ function createObj(obj, type){
 
 function populateNav(Prod){
 	for (let i = 0; i<(Object.keys(Prod)).length; i++){
-		alert(Object.keys(Prod)[i])
 		$('<a href="#" id = "'+Object.keys(Prod)[i]+'" class = "dropdown-item">'+Object.keys(Prod)[i]+'</a>').appendTo($('.dropdown-menu'));
 	}
 }
 
 function search(keyword, obj){
 	let found = 0;
-	alert(keyword);
 	for (var i in Prod) {
 		for (var k in Prod[i]){
 			for (var j in Prod[i][k]){
@@ -171,6 +168,9 @@ $(document).ready(() => {
 		if (search(current_query,Prod)=== 0){
 			$('<h3> No Result Found</h3>').appendTo($('.content'));
 		}
+    });
 
+    $('#add-btn').on('click',()=>{
+    	$('#add-form').toggleClass('notActive', 'Active');
     });
 });
