@@ -1,13 +1,13 @@
 body {
   padding-bottom: 20px;
-  margin: 0 0 20px;
+
 }
 
 .navbar {
   margin-bottom: 20px;
 }
 #footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     height: 20px;
     background: #f0f0f0;

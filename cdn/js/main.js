@@ -121,26 +121,23 @@ $(document).ready(() => {
     populateNav(Prod);
     $('.dropdown-item').click(function(event){
         event.preventDefault();
-    	let clicked_class = ($('#' + event.target.id).attr('class')).split(' ')[1];
-    	$('.data').removeClass('Active');
-    	$('.data').addClass('notActive');
-    	$('#'+clicked_class).toggleClass('Active notActive');
+    	let clicked_class = event.target.id;
     	$(".content").html("");
-    	createRow(clicked_class);
+    	createRow(clicked_class+'-row');
     	if (clicked_class==='books'){
     		for (let i = Prod.books.length - 1; i >= 0; i--) {
-    			createObj(Prod.books[i],clicked_class);
+    			createObj(Prod.books[i],clicked_class+'-row');
     		}
     	}else if(clicked_class==='music'){
     		for (let i = Prod.albums.length - 1; i >= 0; i--) {
-    			createObj(Prod.albums[i],clicked_class);
+    			createObj(Prod.albums[i],clicked_class+'-row');
     		} 		
     	}else{
     		for (let i = Prod.books.length - 1; i >= 0; i--) {
-    			createObj(Prod.books[i],clicked_class);
+    			createObj(Prod.books[i],clicked_class+'-row');
     		}
     		for (let i = Prod.albums.length - 1; i >= 0; i--) {
-    			createObj(Prod.albums[i],clicked_class);
+    			createObj(Prod.albums[i],clicked_class+'-row');
     		}
     	}
     });
