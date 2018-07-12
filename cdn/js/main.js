@@ -99,17 +99,19 @@ function populateNav(Prod){
 	}
 }
 
-function search(keyword, obj){
+function search(keyword, obj, flag){
 	let found = 0;
 	for (var i in Prod) {
 		for (var k in Prod[i]){
 			for (var j in Prod[i][k]){
 				if (String(Prod[i][k][j]).toLowerCase().indexOf(keyword) >=0){
 					found+=1;
-					if (found===1){
-						createRow("search-row");
+					if(flag === 1){
+						if (found===1 ){
+							createRow("search-row");
+						}
+						createObj(Prod[i][k],"search-row");
 					}
-					createObj(Prod[i][k],"search-row");
 				}
 			}
 		}
@@ -165,7 +167,7 @@ $(document).ready(() => {
     $('#srch-btn').on('click', () => {
     	let current_query = $('#srch-box').val().toLowerCase();
 		$(".content").html("");
-		if (search(current_query,Prod)=== 0){
+		if (search(current_query,Prod,1)=== 0){
 			$('<h3> No Result Found</h3>').appendTo($('.content'));
 		}
     });
@@ -173,4 +175,20 @@ $(document).ready(() => {
     $('#add-btn').on('click',()=>{
     	$('#add-form').toggleClass('notActive', 'Active');
     });
+
+    $('#su-form').on('click',() => {
+    	let type = $('#in-type').val().toLowerCase().split('-')[0];
+    	if (search(String($('#in-name').val()),Prod,0)=== 0){
+    		if (type === 1){
+    			alert("here");
+    			let newProd = new Book(String($('#in-name').val()), String($('#in-category').val()), String($('#in-imgUrl').val()), $('#in-price').val(), $('#in-s-points').val().split(','));
+    			books.push(newProd);
+    		}else {
+    			let newProd = new Album(String($('#in-name').val()), String($('#in-category').val()), String($('#in-imgUrl').val()), $('#in-price').val(), $('#in-s-points').val().split(','));
+    			albums.push(newProd);
+    		}
+    	}else{
+    		alert("The added item already exists");
+    	}
+    })
 });
