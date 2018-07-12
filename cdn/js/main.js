@@ -1,5 +1,13 @@
 var list;
 
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
+
 function Book (name, category, imgUrl, price, sPoints){
 	this.name = name;
 	this.category = category;
@@ -16,10 +24,6 @@ function Album (name, category, imgUrl, price, sPoints){
 	this.sPoints = sPoints;
 }
 
-function Product(books, albums){
-	this.books = books;
-	this.albums = albums;
-}
 
 function createRow(type){
 	$('<div/>', {
@@ -97,6 +101,25 @@ function populateNav(Prod){
 	}
 }
 
+function search(keyword, obj){
+	let found = 0;
+	alert(keyword);
+	for (var i in Prod) {
+		for (var k in Prod[i]){
+			for (var j in Prod[i][k]){
+				if (String(Prod[i][k][j]).toLowerCase().indexOf(keyword) >=0){
+					found+=1;
+					if (found===1){
+						createRow("search-row");
+					}
+					createObj(Prod[i][k],"search-row");
+				}
+			}
+		}
+	}
+	return found;
+}
+
 
 let book1 = new Book("The Stranger", "Novel", "cdn/img/the-stranger.jpeg", 10, ["El Sherouq library", "Alef Library"]);
 
@@ -142,4 +165,12 @@ $(document).ready(() => {
     	}
     });
 
+    $('#srch-btn').on('click', () => {
+    	let current_query = $('#srch-box').val().toLowerCase();
+		$(".content").html("");
+		if (search(current_query,Prod)=== 0){
+			$('<h3> No Result Found</h3>').appendTo($('.content'));
+		}
+
+    });
 });
