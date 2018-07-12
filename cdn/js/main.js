@@ -16,143 +16,76 @@ function Album (name, category, imgUrl, price, sPoints){
 	this.sPoints = sPoints;
 }
 
-function createBookRow(){
+function createRow(type){
 	$('<div/>', {
-    	'id':'books',
+    	'id':type,
     	'class':'data Active',
     }).appendTo($('.content'));
 
     $('<div/>', {
-    	'id':'book-row',
+    	'id':type +'-row',
     	'class':'row text-center',
-    }).appendTo($('#books'));  
+    }).appendTo($('#'+type));  
 }
 
-function createBook(book){
-	let bookName1 = book.name.split(' ').join('');  		
-	alert(bookName1);
+function createObj(obj, type){
+	let objName = obj.name.split(' ').join('');  		
+	alert(objName);
     		$('<div/>', {
-    			'id':bookName1+'-card',
+    			'id':objName+'-card',
     			'class':'col-lg-3 col-md-6 mb-4',
-    			}).appendTo($('#book-row'));
+    			}).appendTo($('#'+type+'-row'));
 
     		$('<div/>', {
-    			'id':bookName1,
-    			'class':'book Product',
-    			}).appendTo($('#'+bookName1+'-card'));
+    			'id':objName,
+    			'class':type+' Product',
+    			}).appendTo($('#'+objName+'-card'));
 
     		$('<img/>', {
-    			'id':bookName1+'-imgUrl',
+    			'id':objName+'-imgUrl',
     			'class':'card-img-top',
-    			'src':book.imgUrl,
-    			'alt':'book-cover',
-    			}).appendTo($('#'+bookName1));
+    			'src':obj.imgUrl,
+    			'alt':type+'-cover',
+    			}).appendTo($('#'+objName));
 
     		$('<div/>', {
-    			'id':bookName1+'-body',
+    			'id':objName+'-body',
     			'class':'card-body',
-    		}).appendTo($('#'+bookName1));
+    		}).appendTo($('#'+objName));
 
     		$('<div/>', {
-    			'id':bookName1+'-text',
-    			'class':'book-name',
-    		}).appendTo($('#'+bookName1+'-body'));
-    		$('#'+bookName1+'-text').append('<h5>'+book.name+'</h5>');
+    			'id':objName+'-text',
+    			'class':type+'-name',
+    		}).appendTo($('#'+objName+'-body'));
+    		$('#'+objName+'-text').append('<h5>'+obj.name+'</h5>');
 
     		$('<div/>', {
-    			'id':bookName1+'-category',
-    			'class':'book-category',
-    		}).appendTo($('#'+bookName1+'-body'));
-    		$('#'+bookName1+'-category').append('<h6>'+book.category+'</h6>'); 
+    			'id':objName+'-category',
+    			'class':type+'-category',
+    		}).appendTo($('#'+objName+'-body'));
+    		$('#'+objName+'-category').append('<h6>'+obj.category+'</h6>'); 
 
     		$('<div/>', {
-    			'id':bookName1+'-sPoints',
+    			'id':objName+'-sPoints',
     			'class':'s-points',
-    		}).appendTo($('#'+bookName1+'-body'));
-    		$('#'+bookName1+'-sPoints').append('<p>Buy From: </p>');
+    		}).appendTo($('#'+objName+'-body'));
+    		$('#'+objName+'-sPoints').append('<p>Buy From: </p>');
     		list = '<ul>';
-			for (var i in book.sPoints) {
-    			list += '<li>'+book.sPoints[i]+'</li>';
+			for (var i in obj.sPoints) {
+    			list += '<li>'+obj.sPoints[i]+'</li>';
 				}
 			list += '</ul>';
-			$('#'+bookName1+'-sPoints').append(list);
+			$('#'+objName+'-sPoints').append(list);
 
     		$('<div/>', {
-    			'id':bookName1+'-footer',
+    			'id':objName+'-footer',
     			'class':'card-body',
-    		}).appendTo($('#'+bookName1));
-    		$('#'+bookName1+'-footer').append('<h4>Buy For:<span class="price">'+book.price+'$</span></h4>');  		
+    		}).appendTo($('#'+objName));
+    		$('#'+objName+'-footer').append('<h4>Buy For:<span class="price">'+obj.price+'$</span></h4>');  		
 
 }
 
-function createMusicRow(){
-		$('<div/>', {
-    	'id':'music',
-    	'class':'data Active',
-    }).appendTo($('.content'));
 
-    $('<div/>', {
-    	'id':'album-row',
-    	'class':'row text-center',
-    }).appendTo($('#music'));  
-}
-
-function createAlbum(album){
-	let AlbumName1 = album.name.split(' ').join('');  		
-	alert(AlbumName1);
-    		$('<div/>', {
-    			'id':AlbumName1+'-card',
-    			'class':'col-lg-3 col-md-6 mb-4',
-    			}).appendTo($('#album-row'));
-
-    		$('<div/>', {
-    			'id':AlbumName1,
-    			'class':'music Product',
-    			}).appendTo($('#'+AlbumName1+'-card'));
-
-    		$('<img/>', {
-    			'id':AlbumName1+'-imgUrl',
-    			'class':'card-img-top',
-    			'src':album.imgUrl,
-    			'alt':'book-cover',
-    			}).appendTo($('#'+AlbumName1));
-
-    		$('<div/>', {
-    			'id':AlbumName1+'-body',
-    			'class':'card-body',
-    		}).appendTo($('#'+AlbumName1));
-
-    		$('<div/>', {
-    			'id':AlbumName1+'-text',
-    			'class':'book-name',
-    		}).appendTo($('#'+AlbumName1+'-body'));
-    		$('#'+AlbumName1+'-text').append('<h5>'+album.name+'</h5>');
-
-    		$('<div/>', {
-    			'id':AlbumName1+'-category',
-    			'class':'book-category',
-    		}).appendTo($('#'+AlbumName1+'-body'));
-    		$('#'+AlbumName1+'-category').append('<h6>'+album.category+'</h6>'); 
-
-    		$('<div/>', {
-    			'id':AlbumName1+'-sPoints',
-    			'class':'s-points',
-    		}).appendTo($('#'+AlbumName1+'-body'));
-    		$('#'+AlbumName1+'-sPoints').append('<p>Buy From: </p>');
-    		list = '<ul>';
-			for (var i in album.sPoints) {
-    			list += '<li>'+album.sPoints[i]+'</li>';
-				}
-			list += '</ul>';
-			$('#'+AlbumName1+'-sPoints').append(list);
-
-    		$('<div/>', {
-    			'id':AlbumName1+'-footer',
-    			'class':'card-body',
-    		}).appendTo($('#'+AlbumName1));
-    		$('#'+AlbumName1+'-footer').append('<h4>Buy For:<span class="price">'+album.price+'$</span></h4>');  		
-
-}
 
 let book1 = new Book("The Stranger", "Novel", "cdn/img/the-stranger.jpeg", 10, ["El Sherouq library", "Alef Library"]);
 
@@ -173,15 +106,19 @@ $(document).ready(() => {
     	$('.data').removeClass('Active');
     	$('.data').addClass('notActive');
     	$('#'+clicked_class).toggleClass('Active notActive');
-    	if(clicked_class === 'books'){
-    		$(".content").html("");
-    		createBookRow();
-    		createBook(book1);
-    		createBook(book2);
-    	}else if (clicked_class === 'music'){
-    		createMusicRow();
-    		createAlbum(Album1);
-    		createAlbum(Album2);
+    	$(".content").html("");
+    	createRow(clicked_class);
+    	if (clicked_class==='books'){
+    		createObj(book1,clicked_class);
+    		createObj(book2,clicked_class);
+    	}else if(clicked_class==='music'){
+    		createObj(Album1,clicked_class);
+    		createObj(Album2,clicked_class);    		
+    	}else{
+    		createObj(book1,clicked_class);
+    		createObj(book2,clicked_class);
+    		createObj(Album1,clicked_class);
+    		createObj(Album2,clicked_class);    		
     	}
     });
 
