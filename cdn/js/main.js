@@ -128,7 +128,7 @@ $(document).ready(() => {
     		for (let i = Prod.books.length - 1; i >= 0; i--) {
     			createObj(Prod.books[i],clicked_class+'-row');
     		}
-    	}else if(clicked_class==='music'){
+    	}else if(clicked_class==='albums'){
     		for (let i = Prod.albums.length - 1; i >= 0; i--) {
     			createObj(Prod.albums[i],clicked_class+'-row');
     		} 		
