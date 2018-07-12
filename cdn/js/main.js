@@ -85,6 +85,75 @@ function createBook(book){
 
 }
 
+function createMusicRow(){
+		$('<div/>', {
+    	'id':'music',
+    	'class':'data Active',
+    }).appendTo($('.content'));
+
+    $('<div/>', {
+    	'id':'album-row',
+    	'class':'row text-center',
+    }).appendTo($('#music'));  
+}
+
+function createAlbum(album){
+	let AlbumName1 = album.name.split(' ').join('');  		
+	alert(AlbumName1);
+    		$('<div/>', {
+    			'id':AlbumName1+'-card',
+    			'class':'col-lg-3 col-md-6 mb-4',
+    			}).appendTo($('#album-row'));
+
+    		$('<div/>', {
+    			'id':AlbumName1,
+    			'class':'music Product',
+    			}).appendTo($('#'+AlbumName1+'-card'));
+
+    		$('<img/>', {
+    			'id':AlbumName1+'-imgUrl',
+    			'class':'card-img-top',
+    			'src':album.imgUrl,
+    			'alt':'book-cover',
+    			}).appendTo($('#'+AlbumName1));
+
+    		$('<div/>', {
+    			'id':AlbumName1+'-body',
+    			'class':'card-body',
+    		}).appendTo($('#'+AlbumName1));
+
+    		$('<div/>', {
+    			'id':AlbumName1+'-text',
+    			'class':'book-name',
+    		}).appendTo($('#'+AlbumName1+'-body'));
+    		$('#'+AlbumName1+'-text').append('<h5>'+album.name+'</h5>');
+
+    		$('<div/>', {
+    			'id':AlbumName1+'-category',
+    			'class':'book-category',
+    		}).appendTo($('#'+AlbumName1+'-body'));
+    		$('#'+AlbumName1+'-category').append('<h6>'+album.category+'</h6>'); 
+
+    		$('<div/>', {
+    			'id':AlbumName1+'-sPoints',
+    			'class':'s-points',
+    		}).appendTo($('#'+AlbumName1+'-body'));
+    		$('#'+AlbumName1+'-sPoints').append('<p>Buy From: </p>');
+    		list = '<ul>';
+			for (var i in album.sPoints) {
+    			list += '<li>'+album.sPoints[i]+'</li>';
+				}
+			list += '</ul>';
+			$('#'+AlbumName1+'-sPoints').append(list);
+
+    		$('<div/>', {
+    			'id':AlbumName1+'-footer',
+    			'class':'card-body',
+    		}).appendTo($('#'+AlbumName1));
+    		$('#'+AlbumName1+'-footer').append('<h4>Buy For:<span class="price">'+album.price+'$</span></h4>');  		
+
+}
+
 let book1 = new Book("The Stranger", "Novel", "cdn/img/the-stranger.jpeg", 10, ["El Sherouq library", "Alef Library"]);
 
 let book2 = new Book("A storm of Swords", "Novel", "cdn/img/got.jpg", 15, ["El Sherouq library", "Alef Library"]);
@@ -109,6 +178,10 @@ $(document).ready(() => {
     		createBookRow();
     		createBook(book1);
     		createBook(book2);
+    	}else if (clicked_class === 'music'){
+    		createMusicRow();
+    		createAlbum(Album1);
+    		createAlbum(Album2);
     	}
     });
 
