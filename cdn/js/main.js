@@ -95,6 +95,8 @@ let Album1 = new Album("Best of Nirvana", "Alt-Rock", "cdn/img/Nirvana.png", 10,
 
 let Album2 = new Album("Wish You Were Here", "Rock", "cdn/img/Pink.png", 15, ["Itunes", "Spotify"]);
 
+let books=[book1, book2];
+let albums=[Album1, Album2];
 
 $(document).ready(() => {
     $("#header1").load("header.html");
@@ -109,16 +111,20 @@ $(document).ready(() => {
     	$(".content").html("");
     	createRow(clicked_class);
     	if (clicked_class==='books'){
-    		createObj(book1,clicked_class);
-    		createObj(book2,clicked_class);
+    		for (var i = books.length - 1; i >= 0; i--) {
+    			createObj(books[i],clicked_class);
+    		}
     	}else if(clicked_class==='music'){
-    		createObj(Album1,clicked_class);
-    		createObj(Album2,clicked_class);    		
+    		for (var i = albums.length - 1; i >= 0; i--) {
+    			createObj(albums[i],clicked_class);
+    		} 		
     	}else{
-    		createObj(book1,clicked_class);
-    		createObj(book2,clicked_class);
-    		createObj(Album1,clicked_class);
-    		createObj(Album2,clicked_class);    		
+    		for (var i = books.length - 1; i >= 0; i--) {
+    			createObj(books[i],clicked_class);
+    		}
+    		for (var i = albums.length - 1; i >= 0; i--) {
+    			createObj(albums[i],clicked_class);
+    		}    		createObj(book1,clicked_class);
     	}
     });
 
